@@ -1,9 +1,19 @@
-const Store = () => {
-    return (
-        <div>
+import thunk from 'redux-thunk';
+import * as fromPortfolio from '../portfolio/store';
+import { combineReducers, Store, createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-        </div>
-    )
+export interface AppState {
+    portfolio: fromPortfolio.PortfolioState;
 }
-
-export default Store
+const rootReducer = combineReducers<AppState>({
+    portfolio: fromPortfolio.portfolioReducers,
+});
+export default function configureStore(): Store<AppState> {
+    const store = createStore(
+        rootReducer,
+        undefined,
+        composeWithDevTools(applyMiddleware(thunk))
+    );
+    return store;
+};

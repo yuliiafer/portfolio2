@@ -6,7 +6,7 @@ export enum ActionTypes {
     ADD_DATA = '[Portfolio] ADD_DATA',
 };
 
-export interface AddAction {
+export interface AddDataAction {
     type: ActionTypes.ADD_DATA;
     data: DataModel[];
 };
@@ -15,4 +15,4 @@ export const addData = (data: DataModel[]) => (dispatch: Dispatch) => {
     return dispatch({ type: ActionTypes.ADD_DATA, data});
 };
 
-export type PortfolioActions = AddAction;
+export type PortfolioActions = AddDataAction;

@@ -5,7 +5,7 @@ interface Props {
     data: DataModel;
 }
 
-export const list: FC<Props> = ({data}) => {
+export const Ellist: FC<Props> = ({data}) => {
     return (
         <div className='portfolioC'>
             <h1>

@@ -3,12 +3,12 @@ import { PortfolioActions, ActionTypes } from '../actions/portfolio.actions';
 
 export interface State {
     data: { [id: number]: DataModel};
-    index: number;
+    actIndex: number;
 };
 
 const initialState: State = {
     data: {},
-    index: 0,
+    actIndex: 0,
 };
 
 export const settingsReducer: Reducer<State, PortfolioActions> = (

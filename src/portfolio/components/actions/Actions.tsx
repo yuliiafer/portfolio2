@@ -3,21 +3,21 @@ import { MdNavigateNext } from 'react-icons/md';
 
 interface Props {
     length: number;
-    index: number;
+    currIndex: number;
     next: () => void;
     disabled: boolean;
 };
 
 export const Actions: FC<Props> = ({
     length,
-    index,
+    currIndex,
     next,
     disabled,
 }) => {
     return (
         <Fragment>
             <div className='actions'>
-                <button className='next' disabled={disabled}>
+                <button className='next' onClick={next} disabled={disabled}>
                     <MdNavigateNext />
                 </button>
             </div>
