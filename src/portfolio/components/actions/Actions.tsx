@@ -16,7 +16,7 @@ export const Actions: FC<Props> = ({
 }) => {
     return (
         <Fragment>
-            <div className='actions'>
+            <div className='actionsFragm'>
                 <button className='next' onClick={next} disabled={disabled}>
                     <MdNavigateNext />
                 </button>
