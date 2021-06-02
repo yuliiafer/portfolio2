@@ -32,6 +32,12 @@ export const settingsReducer: Reducer<State, PortfolioActions> = (
                 ),
             };
         }
+        case ActionTypes.SET_ACTINDEX: {
+            return {
+                ...state,
+                actIndex: action.index,
+            }
+        }
         default:
             return state;
     }
