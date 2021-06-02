@@ -9,8 +9,8 @@ import { data } from '../data';
 
 export const PortfolioPage = () => {
     const portfolioData = useSelector((state: AppState) => 
-        Object.keys(state.portfolio.Settings.data).map(
-            (ids) => state.portfolio.Settings.data[parseInt(ids, 10)]
+        Object.keys(state.portfolio.portfSettings.data).map(
+            (ids) => state.portfolio.portfSettings.data[parseInt(ids, 10)]
         )
     );
 
@@ -18,7 +18,7 @@ export const PortfolioPage = () => {
 
     useEffect (() => {
         dispatch(addData(data));
-    }, [dispatch]);
+    }, []);
 
     return (
         <div className='portfolio'>
@@ -29,10 +29,10 @@ export const PortfolioPage = () => {
                 <Nav />
             </header>
             <div className='content'>
-               {portfolioData.map((data) => {
-                   return (
-                   <Ellist key={data.id} data={data} />)
-               })}
+               {portfolioData.map((data) => (
+                   
+                   <Ellist key={data.id} data={data} />
+               ))}
             </div>
             <div className='actions'>
                 <Actions 
