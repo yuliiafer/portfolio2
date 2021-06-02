@@ -14,10 +14,25 @@ export const Actions: FC<Props> = ({
     next,
     disabled,
 }) => {
+
+    const actIndicators = () => {
+        let elem: JSX.Element[] = []
+        for (let i = 0; i < length; i ++) {
+            elem = [
+                ...elem,
+                <div key={i}
+                className={`line line--${i + i} 
+                ${currIndex === i ? 'active' : '' 
+                }`}>
+                </div>,
+            ];
+        }
+        return elem;
+    }
     return (
         <Fragment>
             <div className='actionsFragm'>
-                <button className='next' onClick={next} disabled={disabled}>
+                <button className='btn next' onClick={next} disabled={disabled}>
                     <MdNavigateNext />
                 </button>
             </div>
@@ -28,7 +43,7 @@ export const Actions: FC<Props> = ({
                 <span>
                     01
                 </span>
-                ...
+                    {actIndicators()}
                 <span>
                     0{length}
                 </span>
