@@ -4,6 +4,7 @@ import { DataModel } from "../reducers/settings.reducer";
 
 export enum ActionTypes {
     ADD_DATA = '[Portfolio] ADD_DATA',
+    SET_ACTINDEX = '[Portfolio] SET_ACTINDEX',
 };
 
 export interface AddDataAction {
@@ -11,8 +12,17 @@ export interface AddDataAction {
     data: DataModel[];
 };
 
+export interface SetActIndexAction {
+    type: ActionTypes.SET_ACTINDEX,
+    index: number;
+}
+
 export const addData = (data: DataModel[]) => (dispatch: Dispatch) => {
     return dispatch({ type: ActionTypes.ADD_DATA, data});
 };
 
-export type PortfolioActions = AddDataAction;
+export const setAIndex = (index: number) => (dispatch: Dispatch) => {
+    return dispatch({ type: ActionTypes.SET_ACTINDEX, index });
+}
+
+export type PortfolioActions = AddDataAction | SetActIndexAction;

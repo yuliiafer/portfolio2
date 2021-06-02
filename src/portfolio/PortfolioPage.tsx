@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Ellist, Nav, Actions } from "./components";
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -8,6 +8,9 @@ import { AppState } from "../store";
 import { data } from '../data';
 
 export const PortfolioPage = () => {
+    const [cIndex, setCIndex] = useState<number>(0);
+    const [disabled, setDisabled] = useState<boolean>(false);
+
     const portfolioData = useSelector((state: AppState) => 
         Object.keys(state.portfolio.portfSettings.data).map(
             (ids) => state.portfolio.portfSettings.data[parseInt(ids, 10)]
@@ -19,6 +22,10 @@ export const PortfolioPage = () => {
     useEffect (() => {
         dispatch(addData(data));
     }, []);
+
+    const handleNext = () => {
+
+    }
 
     return (
         <div className='portfolio'>
@@ -36,9 +43,9 @@ export const PortfolioPage = () => {
             </div>
             <div className='actions'>
                 <Actions 
-                next={() => {}}
-                currIndex={0}
-                disabled={false}
+                next={handleNext}
+                currIndex={cIndex}
+                disabled={disabled}
                 length={portfolioData.length} />
             </div>
         </div>
