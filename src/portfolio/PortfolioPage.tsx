@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState, useRef } from 'react';
 import { Ellist, Nav, Actions } from "./components";
 import { useSelector, useDispatch } from 'react-redux';
@@ -25,7 +26,8 @@ export const PortfolioPage = () => {
     const dispatch = useDispatch();
 
     useEffect (() => {
-        dispatch(addData(data));
+        dispatch(addData(data()));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleNext = () => {
